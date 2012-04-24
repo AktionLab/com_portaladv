@@ -1,0 +1,1171 @@
+/*******************
+  GLOBAL STYLES
+*******************/
+body, html {
+	padding:0; margin:0;
+}
+
+div.pagebreak {
+	page-break-before: always;
+}
+
+div.print_page {
+	height:660px;
+	padding:105px 0px;
+	overflow:hidden;
+	background: url(images/bco_print_bg.jpg) top center no-repeat;
+}
+
+div.wrapper {
+	width:670px;
+}
+
+h2 {
+	font-size:18px;
+	line-height:20px;
+}
+
+div.padding {
+	padding:10px;
+}
+
+input.portaladv_button {
+	color:#ffffff;
+	padding:2px;
+	border:1px solid #94BCE0;
+	background: #0066A4;
+	cursor: pointer;
+	margin:4px 0px 4px 0px;
+	font-size:10px;
+}
+
+input.portaladv_button_hover {
+	color:#ffffff;
+	padding:2px;
+	border:1px solid #94BCE0;
+	background: #ECA404;
+	cursor: pointer;
+	margin:4px 0px 4px 0px;
+	font-size:10px;
+}
+
+input.portaladv_button_off {
+	color:#dddddd;
+	padding:2px;
+	border:1px solid #94BCE0;
+	background: #8B9CA4;
+	cursor: pointer;
+	margin:4px 0px 4px 0px;
+	font-size:10px;
+}
+
+/*****************
+  MAP SEARCH
+******************/
+
+div.content_container_nosearch {
+	background: #FFFFFF;
+	padding: 0px 20px 20px 20px;
+}
+
+div#portaladv_map {
+
+}
+
+div#portaladv_mapsearch {
+	width:100%;
+	border:1px solid #7F2E19;
+	margin-bottom:15px;
+}
+
+div.PortalAdvMap_container {
+	height:650px;
+
+	padding:0px;
+	margin:0px;
+}
+
+div#portaladv_map_search_form,
+div#mapsearch_form_container {
+	width:100%;
+	background: #7F2E19;
+	color: #ffffff;
+	font-family:arial;
+}
+
+div#portaladv_mapsearch select {
+	font-size: 11px;
+	font-family:arial;
+	width:120px;
+}
+
+div#portaladv_mapsearch input.input {
+	font-size: 11px;
+	font-family:arial;
+	width:120px;
+}
+
+div#portaladv_mapsearch h3 {
+	padding:0px;
+	margin:0px;
+	font-size:20px;
+	font-weight:normal;
+}
+
+div#portaladv_mapsearch h4 {
+	padding-bottom:0px;
+	font-size:14px;
+}
+
+div.GoogleMapSearch {
+	float:left;
+	width: 670px;
+	background: #ffffff;
+	height:200px;
+}
+
+div.GoogleMapSearch_full_width {
+	float:left;
+	width: 670px;
+	background: #ffffff;
+	height:200px;
+}
+
+
+div#mapContainer {
+	float: left;
+	width:670px;
+	height:200px;
+	position:relative;
+}
+
+div#mapContainer_full_width {
+	float: left;
+	width:670px;
+	height:200px;
+	position:relative;
+}
+
+div.mapLoading {
+	width:670px;
+	height:200px;
+	z-index:100;
+	position:absolute;
+	left:-670px;
+	background-color: #000000;  /* the background          */
+   filter:alpha(opacity=50);   /* Internet Explorer       */
+   -moz-opacity:0.5;           /* Mozilla 1.6 and below   */
+   opacity: 0.5;               /* newer Mozilla and CSS-3 */
+   text-align:center;
+}
+
+div.mapLoading_full_width {
+	width:670px;
+	height:200px;
+	z-index:100;
+	position:absolute;
+	left:0px;
+	background-color: #000000;  /* the background          */
+   filter:alpha(opacity=50);   /* Internet Explorer       */
+   -moz-opacity:0.5;           /* Mozilla 1.6 and below   */
+   opacity: 0.5;               /* newer Mozilla and CSS-3 */
+   text-align:center;
+}
+
+div#loadingGif {
+	background:url(images/ajax-loader.gif) center no-repeat;
+	width:100px;
+	height:100%;
+	margin:auto;
+}
+
+span.mapInfoWindow_text {
+	font-size:12px;
+	font-weight:bold;
+	font-family: arial;
+}
+
+a.mapInfoWindow_link {
+	font-size:11px;
+	font-weight:normal;
+	font-family: arial;
+	color: #4F701C;
+}
+
+span.mapInfoWindow_price {
+	font-size:14px;
+	font-weight:bold;
+	font-family: arial;
+	color: #7F2E19;
+}
+span.mapInfoWindow_bedbath {
+	font-size:12px;
+	font-weight:normal;
+	font-family: arial;
+	color: #333333;
+}
+div#PortalAdvMapViewTabs {
+	height:27px;
+	overflow:hidden;
+	color: #ffffff;
+	font-family:arial;
+	cursor:pointer;
+}
+
+div.PortalAdvMapViewTabs_tab {
+	cursor:pointer;
+	width:100px;
+	font-size:14px;
+	font-weight:bold;
+	padding:5px;
+	float:left;
+	text-align:center;
+	border-top:1px solid #97A43A;
+	border-right:1px solid #97A43A;
+	background:#4F602A;
+}
+
+div.PortalAdvMapViewTabs_tab_hover {
+	cursor:pointer;
+	width:100px;
+	font-size:14px;
+	font-weight:bold;
+	padding:5px;
+	float:left;
+	text-align:center;
+	border-top:1px solid #97A43A;
+	border-right:1px solid #97A43A;
+	background:#6F792A;
+}
+
+div.PortalAdvMapViewTabs_tab_active {
+	cursor:pointer;
+	width:100px;
+	font-size:14px;
+	font-weight:bold;
+	padding:5px;
+	float:left;
+	text-align:center;
+	border-top:1px solid #97A43A;
+	border-right:1px solid #97A43A;
+	background:#97A43A;
+}
+
+div.clear {
+	clear:both;
+}
+
+div#streetViewContainer {
+	width:650px;
+	height:250px;
+}
+
+/******************************
+  VIRTUAL TOUR - DETAILS PAGE
+*******************************/
+div#virtual_tour_container {
+	width:950px;
+	display:none;
+}
+
+/*****************
+SEARCH FILTER
+******************/
+h2.search_filter_title {
+	margin:0px;
+	font-size:14px;
+	text-transform: uppercase;
+	padding:1px 0px 1px 0px;
+	background:#54a5d4;
+	color:#ffffff;
+	text-align:center;
+}
+
+div#portaladv_filter {
+	width:170px;
+	float:left;
+	padding:10px;
+	overflow:hidden;
+}
+
+div#portaladv_results {
+	width:420px;
+	float:left;
+	margin-left:0px;
+	padding-top:6px;
+	overflow:hidden;
+}
+
+div#portaladv_featured {
+	width:283px;
+	float:right;
+	margin-left: 15px;
+}
+
+div.filter_container {
+	font-family:arial;
+	width:180px;
+	color:#ffffff;
+	/* background:#F4FFD1  url(../../images/light_green_pixel.png) left repeat-y; */
+	background:#001120;
+}
+
+div.filter_container_border_right {
+	background:  url(../../images/light_green_pixel.png) right repeat-y;
+}
+
+div.filter_container_border_bottom {
+	background:  url(../../images/light_green_pixel.png) bottom repeat-x;
+}
+
+div.filter_container_border_top {
+	background:  url(../../images/light_green_pixel.png) top repeat-x;
+}
+
+div.filter_container h4 {
+	color:#54a5d4;
+	margin:0px;
+	font-size:14px;
+	/* background:#97A43A; */
+	padding:3px 4px 4px 4px;
+}
+
+td.left_pad {
+	padding-left:5px;
+}
+
+.bold {
+	font-weight:bold;
+}
+
+div.filter_options,
+div.filter_options_left,
+div.filter_options_right {
+	font-size:12px;
+	padding-left:10px;
+	padding-top:10px;
+	padding-bottom:10px;
+}
+
+div.filter_options_right {
+	background:  url(../../images/light_green_pixel.png) left repeat-y;
+}
+
+div#filterForm label {
+	font-size:12px;
+}
+
+div.filter_container input {
+	border:1px solid #cccccc;
+	background:#ffffff;
+}
+
+div.filter_container input.button {
+	border:1px solid #cccccc;
+	background:#2D6080;
+	color:#ffffff;
+	cursor:pointer;
+	font-size:10px;
+}
+
+label {
+	font-size:12px;
+}
+
+label.area_label {
+	font-family:'arial narrow', arial;
+	font-size:11px;
+}
+
+div.filter_pricebox label {
+	width:60px;
+	font-weight:bold;
+}
+
+div.filter_pricebox input,
+div.filter_squarefeetbox input {
+	width:70px;
+	margin-bottom:2px;
+	height:14px;
+	padding-left:4px;
+	padding-top:2px;
+	font-size:10px;
+	vertical-align:middle;
+}
+
+div.filter_features input {
+	width:150px;
+	margin-bottom:2px;
+	height:14px;
+	padding-left:4px;
+	padding-top:2px;
+	font-size:10px;
+	vertical-align:middle;
+}
+
+div.filter_checkbox {
+	font-size:12px;
+}
+
+div#filter_bedrooms,
+div#filter_bathrooms {
+	float:left;
+	width:90px;
+}
+
+input.checkbox {
+	width:14px;
+	height:13px;
+	margin-left:0px;
+	padding-left:0px;
+	vertical-align:middle;
+}
+
+div.clear {
+	clear:both;
+}
+
+div.hidden {
+	display:none;
+}
+
+div.visible {
+	display:block;
+}
+
+span.small {
+	font-size:10px;
+}
+
+.pointer {
+	cursor:pointer;
+}
+
+/*************************
+LISTINGS
+*************************/
+
+div.underline {
+	margin-bottom:10px;
+	border-bottom: 1px solid #aaaaaa;
+}
+
+h2.search_heading {
+	font-weight:normal;
+	padding-bottom: 6px;
+	color:#333333;
+}
+
+span.search_heading_count {
+	font-weight:bold;
+}
+
+div.listing {
+	width:415px;
+	margin-bottom:10px;
+	border-left:1px solid #94BCE0;
+	border-right:1px solid #94BCE0;
+	border-bottom:1px solid #94BCE0;
+	font-family:arial;
+	color:#333333;
+	background: url(idx_r.png) no-repeat bottom right;
+}
+
+div.listing_highlight {
+	width:415px;
+	margin-bottom:10px;
+	border-left:1px solid #94BCE0;
+	border-right:1px solid #94BCE0;
+	border-bottom:1px solid #94BCE0;
+	font-family:arial;
+	color:#333333;
+	background: #A9DAEB url(idx_r.png) no-repeat bottom right;
+}
+
+div.listing_details {
+	position:relative;
+}
+
+div.add_to_favorites {
+	right:0px;
+	width:60px;
+	padding-right:3px;
+	z-index:1000;
+	position:absolute;
+	text-align:right;
+}
+
+div.listing_address {
+	background:#0066a4;
+}
+
+div.listing_address div {
+	font-size:14px;
+}
+
+div.listing_address h4 {
+	margin:0px;
+	padding:3px 4px 4px 4px;
+	font-size:14px;
+	color:#ffffff;
+	font-weight:bold;
+}
+
+div.listing_image {
+	width:180px;
+	float:left;
+	padding-left:10px;
+	padding-top:10px;
+}
+
+div.listing_provider {
+	float: left;
+}
+
+div.listing_info {
+	padding-top:10px;
+	margin-left:10px;
+	width:200px;
+	float:left;
+}
+
+div.listing_links {
+	margin-top:20px;
+	margin-left:10px;
+	vertical-align:middle;
+	width:70px;
+	float:left;
+}
+
+div.listing_links a {
+	font-size:12px;
+	font-weight:bold;
+}
+
+div.listing span {
+	line-height:20px;
+}
+
+div.listing span.listing_price,
+span.listing_price {
+	font-size:18px;
+	font-weight:bold;
+}
+
+span.listing_bedbath {
+	font-size:12px;
+	line-height:14px;
+	font-weight:bold;
+}
+
+div.listing span.listing_type,
+span.listing_area {
+	font-size:12px;
+	line-height:14px;
+	font-weight:bold;
+}
+
+span.listing_area2 {
+	font-size:16px;
+	font-weight:bold;
+}
+
+span.listing_office {
+	font-size:11px;
+	font-weight:normal;
+	padding:0px 13px;
+	margin:0;
+	color:#666666;
+}
+
+div.listing_amenities {
+	padding:6px 10px 5px 10px;
+	font-size:11px;
+}
+
+div.listing_address2 {
+	padding:6px 10px 5px 10px;
+	font-size:11px;
+	font-weight:bold;
+}
+
+span.listing_amenities {
+	font-size:12px;
+	line-height:12px;
+}
+
+div.listing_amenities ul {
+	margin:0px;
+	padding:0px 0px 0px 10px;
+	font-size:9px;
+}
+
+div.listing_amenities ul li {
+	margin:0px;
+	padding:0px;
+	line-height:14px;
+}
+
+div.listing_amenities td {
+	padding-right:10px;
+}
+
+span.sort_by,
+span.page {
+	font-family:arial;
+	font-size:12px;
+	font-weight:bold;
+	color:#111111;
+}
+
+select.sortlist {
+	font-family:arial;
+	font-size:12px;
+	color:#111111;
+}
+
+div.spacer {
+	width:300px;
+	height:6px;
+}
+
+span.listing_subarea {
+	font-size:11px;
+}
+
+span.listing_subdivision_name {
+	font-weight:bold;
+	font-size:14px;
+}
+
+/*************************/
+/*   DETAILS VIEW CSS    */
+/*************************/
+div.print_listing_photos {
+	width:670px;
+}
+
+div.listing_photo {
+	float:left;
+	width:325px;
+	padding-right:10px;
+}
+
+div.details_main_container {
+	width: 670px;
+	margin: 0px;
+	padding-bottom: 0px;
+	//background:#ffffff;
+	float:left;
+}
+
+div.details_details {
+	float: left;
+	width: 300px;
+}
+
+div.details_photos {
+	float: right;
+	text-align: right;
+	width: 370px;
+	border: 0px solid #EDEBEB;
+	/* background: url(images/photo_bg.png) left repeat-y #ffffff; */
+}
+
+div.details_map_container {
+	width: 100%;
+}
+
+div.details_map {
+	margin-top: 10px;
+	background: #FFFFFF;
+	border: 1px solid #9B4E2F;	
+}
+
+div.details_map_filter {
+	float: left;
+	background: #607138;
+	width: 255px;
+	height: 350px;
+}
+
+div.details_more {
+	float: left;
+	width: 695px;
+	background: #FFFFFF;
+}
+
+div.more_details_separator {
+	width:100px;
+	height:5px;
+}
+
+div.details_modules_container {
+	width: 100%;
+}
+
+div.details_contact {
+	float: left;
+	width: 234px;
+	background: #FFFFFF;
+}
+
+span.contact_us_line1 {
+	font-size:14px;
+}
+
+div.details_other {
+	width: 100%;
+	margin: 20px;
+	margin-left: 20px;
+	height: 140px;	
+	background: #FFFFFF;
+	border: 1px solid #9B4E2F;
+}
+
+div.details_header {
+	width: 670px;
+	color: #0066a4;
+	padding-left: 0px;
+	padding-top: 5px;
+	height: 20px;
+	font-family: arial;
+	font-size: 22px;
+	line-height:20px;
+	font-weight:bold;
+}
+
+div.details_address_mls {
+	width: 100%;
+	height: 20px;
+	margin-bottom: 10px;
+	background: #0066a4;
+	color: #ffffff;
+}
+
+div.details_address {
+	float:left;
+}
+
+div.details_mls {
+	padding-right: 10px;
+	float:right;
+}
+
+div.details_main_container h2 {
+	margin: 0;
+	color: #ffffff;
+	padding-left: 12px;
+	padding-top: 6px;
+}
+
+div.details_main_container h3 {
+	margin: 0;
+	color: #ffffff;
+	padding-left: 12px;
+	padding-top: 6px;
+}
+
+div.details_main_container h1 {
+	margin: 0;
+	color: #ffffff;
+	font-size: 20px;
+	padding-left: 12px;
+	padding-top: 10px;
+}
+
+div.details_photos_container td {
+	text-align: center;
+	vertical-align: top;
+}
+
+div.details_photos_container table {
+	vertical-align: top;
+}
+
+div.details_amenities {
+	font-size: 14px;
+	float: left;
+	width: 280px;
+	padding-right: 10px;
+	font-family: Arial;
+}
+
+div.details_info {
+	font-family: Arial;
+	font-size: 11px;
+	padding: 10px 10px 4px 0px;
+}
+
+div.details_price,
+div.building_available {
+	font-size: 22px;
+	line-height: 28px;
+	color: #1A3618;
+	font-weight: bold;
+	padding-bottom: 5px;
+}
+
+div.details_bedbath {
+	height:20px;
+	font-size: 14px;
+	font-weight:bold;
+	color: #5C5F58;
+}
+
+div.details_type {
+	font-size: 14px;
+	color: #5C5F58;
+	font-weight: normal;
+	height: 20px;
+}
+
+div.details_spacer {
+	height:10px;
+	width:100px;
+}
+
+span.details {
+	line-height: 15px;
+}
+
+div.details_public_remarks {
+	float: left;
+	width: 208px;
+	font-family: Arial;
+	font-size:10px;
+	padding: 15px 5px 0px 10px;
+	line-height:12px;
+	border-right:1px dashed #bbbbbb;
+}
+
+td.details_thumb img {
+	width: 90%;
+	height: 90%;
+}
+
+table.details_photo_thumb {
+	padding: 10px;
+	vertical-align: top;
+}
+
+div.details_view_nearby {
+	margin-left: 7px; 
+	padding: 5px 0px 5px 10px; 
+	background: #869662; 
+	color: #ffffff; 
+	width: 160px; 
+	font-family: arial; 
+	font-size: 12px;
+}
+
+div.details_neighborhood_features {
+	width: 242px; 
+	text-align: left; 
+	padding: 15px 0px 0px 15px; 
+	height: 35px; 
+	font-family: arial; 
+	font-size: 18px; 
+	line-height:20px;
+	background: #172409; 
+	color: #ffffff;
+}
+
+div.details_map_checkbox {
+	font-family: Arial;
+	color: #ffffff;
+	font-size: 12px;
+	padding: 2px 0px 0px 10px;
+}
+
+div.details_map_checkbox input {
+	padding-right: 5px;
+}
+
+div.details_filter_icons {
+	color: #ffffff;
+	font-size: 12px;
+	font-family: Arial;
+	padding-top: 10px;
+	padding-left: 10px;
+}
+
+ul.more_details li {
+	list-style: none;
+	padding-top: 5px;
+	margin-left: -30px;
+}
+
+div.details_line_break1 {
+	border-top: 1px solid #e9e7e7;
+	padding-bottom: 10px;
+	width: 100%;	
+}
+
+div.details_line_break2 {
+	border-bottom: 1px solid #e9e7e7;
+	padding-top:20px;
+	width: 100%;	
+}
+
+div#details_form_div {
+	background:#607138;
+	width:255px;
+}
+
+div.details_contact_header {
+	float: left;
+	width: 240px;
+	color:#ffffff;
+	padding-left: 15px;
+	padding-top: 15px;
+	height: 35px;
+	font-family: arial;
+	font-size: 18px;
+	line-height: 20px;
+	background-color: #172409;
+}
+
+div.details_contact_header h3 {
+	color: #54584B;
+	margin: 0;
+	padding-left: 12px;
+	padding-top: 6px;
+}
+
+table.details_contact_table { 
+	padding-top: 5px;
+}
+
+table.details_contact_table td {
+	text-align: left;
+	padding: 5px;
+	font-family: Arial;
+	color: #ffffff;
+}
+
+.details_text_fields {
+	border: 1px solid #E0DEDE;
+	background: #F7F5F5;
+	width:210px;
+}
+
+textarea.details_text_fields {
+	width: 210px;
+	height: 80px;
+}
+
+.details_submit_button {
+	width: 84px;
+	height: 28px;
+	background: url(images/button_send.png) no-repeat;
+	border: none;
+	cursor: pointer;
+}
+
+div.details_form_thanks {
+	display: none;
+	font-family: Arial;
+	padding: 25px 15px 15px 15px;
+	font-size: 14px;
+	line-height:18px;
+	color: #54584B;
+	height: 250px;
+	width:224px;
+	text-align: center;
+	background: url(images/phone.png) bottom no-repeat;	
+}
+
+.clear_checkbox {
+	color:#ffffff;
+	padding:4px;
+	border:1px solid #97a43a;
+	background: #4f602a;
+	cursor: pointer;
+}
+
+.send_message {
+	color:#ffffff;
+	padding:4px;
+	border:1px solid #97a43a;
+	background: #4f602a;
+	cursor: pointer;
+}
+
+.listing_img img {
+	width: 325px;
+}
+
+div.details_photos_container {
+	margin-top: 0px;
+	padding-right:10px;
+}
+
+div.main_image {
+
+}
+
+ul.image_list {
+	display: inline;
+	list-style:none;
+	padding:0px;
+	margin:0px;
+}
+
+ul.image_list li {
+	cursor: pointer;
+	width:60px;
+	display:inline;
+}
+
+ul.image_list li img {
+	cursor: pointer;
+}
+
+/*****************************
+ INTERACTIVE MAP
+*****************************/
+div.portaladv_interactive_map {
+	padding:10px;
+}
+
+/****************************
+  BUILDING DETAILS
+****************************/
+div.building_info_container {
+	float:left;
+	width:475px;
+	height:400px;
+}
+
+input.button_large_green {
+	color:#ffffff;
+	padding:4px;
+	border:1px solid #97a43a;
+	background: #4f602a;
+	cursor: pointer;
+	font-size:16px;
+}
+
+input.button_large_green_hover {
+	color:#ffffff;
+	padding:4px;
+	border:1px solid #97a43a;
+	background: #172409;
+	cursor: pointer;
+	font-size:16px;
+}
+
+div.building_info {
+	padding:10px 10px 10px 20px;
+}
+
+div.building_description {
+	padding-top:10px;
+	padding-bottom:20px;
+}
+
+span.building_description_text {
+	font-size:16px;
+	line-height:20px;
+}
+
+div.building_showcase {
+	float:left;
+	width:475px;
+	height:400px;
+}
+
+div.building_amenities {
+	float:left;
+	width:475px;
+	font-size:14px;
+}
+
+div.building_amenities_header {
+	float:left;
+	width:460px;
+	background: #0066a4;
+	color: #ffffff;
+	padding-left: 15px;
+	padding-top: 15px;
+	height: 35px;
+	font-family: arial;
+	font-size: 18px;
+	line-height:20px;
+}
+
+div.building_amenities_left {
+	float:left;
+	width:237px;
+	border-right:1px dashed #dddddd;
+}
+
+div.building_amenities_right {
+	width:237px;
+	float:left;
+}
+
+div.building_rental_form {
+	float:left;
+	width:475px;
+	background:#607138;
+	color:#ffffff;
+}
+
+div.building_rental_form input.inputbox {
+	margin-bottom:4px;
+	margin-top:0px;
+	padding-top:0px;
+}
+
+div.building_rental_form_header {
+	width: 460px;
+	color:#ffffff;
+	padding-left: 15px;
+	padding-top: 15px;
+	height: 35px;
+	font-family: arial;
+	font-size: 18px;
+	line-height: 20px;
+	background: #172409;
+}
+
+/******************************
+  FEATURED LISTINGS
+******************************/
+div.featured_container {
+	background:#ffffff;
+	padding:0px;
+}
+
+div.featured_container img {
+	padding-bottom:2px;
+}
+
+div.featured_listing {
+	cursor:pointer;
+	padding-top:5px;
+	padding-bottom:3px;
+	text-align:center;
+	border-bottom:1px dashed #bbbbbb;
+	background:#ffffff;
+}
+
+div.featured_listing_hover {
+	cursor:pointer;
+	background:#BCD4D4;
+	padding-top:5px;
+	padding-bottom:3px;
+	text-align:center;
+	border-bottom:1px dashed #bbbbbb;
+}
+
+/********************************
+  PRINT LISTING
+********************************/
+div.printlisting_footer_contact_us {
+	font-size:18px;
+	font-family:arial;
+	color:#0066a4;
+}

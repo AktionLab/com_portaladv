@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+	<layout title="Interactive Map">
+		<message>
+			Interactive Map of Beaver Creek
+		</message>
+	</layout>
+	<state>
+		<name>Interactive Map</name>
+		<description>Search listings with an interactive map of Beaver Creek</description>
+		<params>
+		</params>
+	</state>
+	</metadata>

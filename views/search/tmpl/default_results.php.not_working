@@ -1,0 +1,286 @@
+<?php defined('_JEXEC') or die('Restricted access'); ?>
+
+
+<head>
+<script type="text/javascript">
+var GB_ROOT_DIR = "includes/js/greybox/";
+</script>
+<script type="text/javascript" src="com_portaladv/views/search/includes/js/greybox/AJS.js"></script>
+<script type="text/javascript" src="com_portaladv/views/search/includes/js/greybox/AJS_fx.js"></script>
+<script type="text/javascript" src="com_portaladv/views/search/includes/js/greybox/gb_scripts.js"></script>
+
+<link href="com_portaladv/views/search/includes/js/greybox/gb_styles.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+
+<table cellpadding="0" cellspacing="0">
+	<tr>
+		<td align="left">
+			<span class="sort_by">Sort By:</span>
+			<select name="sort" class="sortlist" onchange="this.form.submit()">
+				<?
+				 /*
+				  <!-- <option value="default" <? echo PortalAdvHelperLayout::checkSelectState('sort','default'); ?>>Closest match</option>
+                  <!-- <option value="date">Date Listed</option> -->
+                 */
+                 ?>
+                  <option value="price_d" <? echo PortalAdvHelperLayout::checkSelectState('sort','price_d', true); ?>>Price (highest first)</option>
+                  <option value="price_a" <? echo PortalAdvHelperLayout::checkSelectState('sort','price_a'); ?>>Price (lowest first)</option>
+                  <option value="num_bedrooms" <? echo PortalAdvHelperLayout::checkSelectState('sort','num_bedrooms'); ?>>Bedrooms</option>
+                  <option value="num_bathrooms" <? echo PortalAdvHelperLayout::checkSelectState('sort','num_bathrooms'); ?>>Bathrooms</option>
+                  <?
+                  /*>
+                  <option value="type" <? echo PortalAdvHelperLayout::checkSelectState('sort','type'); ?>>Property Type</option>
+					*/
+					?>
+			</select>
+			&nbsp;&nbsp;<span class="pagination_page"><? echo $this->pagination->getPagesCounter(); ?></span>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<div class="spacer"></div>
+		</td>
+	</tr>
+	<tr>
+		<td align="left">
+			<? echo $this->pagination->getPagesLinks(); ?>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<div class="spacer"></div>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+		<? foreach ($this->listings as $listing): ?>
+			<?
+			if ($listing->{FIELDNAME_LISTING_AGENT_ID} == BROKER_ID1 || $listing->{FIELDNAME_LISTING_AGENT_ID} == BROKER_ID2) {
+				echo "<div class=\"listing_highlight\">";
+			} else {
+				echo "<div class=\"listing\">";
+			}
+			?>
+				<div class="listing_address">
+					<h4><? echo ucwords(strtolower($listing->{FIELDNAME_RESIDENTIAL_AREA})); ?></h4>
+					<div style="color: #ffffff; margin-top:-20px;margin-right: 5px;float:right;"><? echo "MLS #".$listing->{FIELDNAME_RESIDENTIAL_LISTING_NUM}; ?></div>
+				</div>
+<?php
+	//check if listing has already been favorited
+	$user =& JFactory::getUser();
+	$db =& JFactory::getDBO();
+	$favquery = "SELECT id FROM jos_favorites WHERE content_id = '" . $listing->{FIELDNAME_RESIDENTIAL_LISTING_DATABASE_ID} . "' AND user_id = '" . $user->id . "'";
+	$db->setQuery($favquery);
+	if ($favresult = $db->loadResult()) {
+		$fav_status = 1;
+		$listing_details_css_class = "listing_details_saved";
+	} else {
+		$fav_status = -1;
+		$listing_details_css_class = "listing_details";
+	}
+?>
+				<div class="<?php echo $listing_details_css_class; ?>">
+					<div class="add_to_favorites">
+					
+<?
+
+/*****************************************
+/*
+/* HANDLE FAVORITES
+/*
+/*****************************************/
+		 				
+/**
+*
+*/
+
+?>
+					
+					</div>
+					<div class="listing_image">
+
+<? 
+						if (file_exists("/home/portal/rets_photos/image-" . $listing->{FIELDNAME_RESIDENTIAL_LISTING_DATABASE_ID} . "-1.jpg"))
+						{
+							echo '<a href="index.php?option=com_portaladv&view=details&listing=' . $listing->{FIELDNAME_RESIDENTIAL_LISTING_DATABASE_ID} . '"><img src="/mlsphotos/image-' . $listing->{FIELDNAME_RESIDENTIAL_LISTING_DATABASE_ID} . '-1.jpg" width="180" /></a>';
+						} 
+						else
+						{
+							echo '<img src="/components/com_portaladv/images/noimage.jpg"" />';
+						}
+?>
+
+					</div>
+					
+					<div class="listing_info">
+						<?php ## modified by Rich S Wyatt to strip the comma from the numeral ?>
+						<span class="listing_price"><? echo '$' . number_format(str_replace(",","",$listing->{FIELDNAME_RESIDENTIAL_PRICE})); ?></span><br />
+						<span class="listing_bedbath"><? echo str_replace(".0","",$listing->{FIELDNAME_RESIDENTIAL_NUM_BEDROOMS});  ?> <? echo BEDROOM_ABBREV_1; ?> / <? echo str_replace(".0","",$listing->{FIELDNAME_RESIDENTIAL_NUM_BATHROOMS}); ?> <? echo BATHROOM_ABBREV_1; ?> / <? echo number_format($listing->{FIELDNAME_RESIDENTIAL_SQUAREFEET}); ?> <? echo SQUAREFEET_ABBREV; ?></span><br />
+						<span class="listing_type"><? echo ucwords(strtolower(str_replace(","," / ",$listing->{FIELDNAME_LISTING_SUB_TYPE}))); ?></span>
+						<?php 
+						if ($listing->{FIELDNAME_RESIDENTIAL_PROP_TYPE} == 'Partial Ownership') {
+							echo " (Fractional Ownership)";
+						}
+						?><br />
+						<? /*<span class="listing_area"><? echo ucwords(strtolower($listing->{FIELDNAME_RESIDENTIAL_AREA})); ?></span><br /> */ ?>
+						
+						<strong>
+							<input type="button" class="portaladv_button" value="<? echo BUTTON_DETAILS; ?>" onmouseover="this.className='portaladv_button_hover';" onmouseout="this.className='portaladv_button';" onclick="window.open('index.php?option=com_portaladv&view=details&listing=<?=$listing->{FIELDNAME_RESIDENTIAL_LISTING_DATABASE_ID}?>','_self');" ></input>
+<?							
+if ($user->id)
+{
+		 					
+	if ($fav_status == 1)
+	{
+					
+		 	$link = "<input type=\"button\" class=\"portaladv_button_off\" id=\"fav" . $listing->{FIELDNAME_RESIDENTIAL_LISTING_DATABASE_ID} . "\"  onclick=\"window.open('index.php?option=com_comprofiler','_self');\" value=\"" . BUTTON_FAVORITE_SAVED . "\"></input>";
+		 	
+		 						
+	}
+	else
+	{
+		 					
+		 	$link = "<input type=\"button\" class=\"portaladv_button\" id=\"fav" . $listing->{FIELDNAME_RESIDENTIAL_LISTING_DATABASE_ID} . "\" onmouseover=\"this.className='portaladv_button_hover';\" onmouseout=\"this.className='portaladv_button';\" onclick=\"favorite('" . $listing->{FIELDNAME_RESIDENTIAL_LISTING_DATABASE_ID} . "','portaladv','" . $fav_status . "','" . $user->id . "');\" value=\"" . BUTTON_ADD_TO_FAVORITES . "\"></input>";
+		 	
+		 						
+	}
+		 					
+	$fav = $link;
+		 					
+}
+else
+{
+		 				
+	$fav = "<input type=\"button\" class=\"portaladv_button\" id=\"favorite_link\" onmouseover=\"this.className='portaladv_button_hover';\" onmouseout=\"this.className='portaladv_button';\" onclick=\"window.open('index.php?option=com_comprofiler&task=registers&listingid=" . $listing->{FIELDNAME_RESIDENTIAL_LISTING_DATABASE_ID} . "','_self');\" value=\"" . BUTTON_ADD_TO_FAVORITES . "\" ></input>";
+		 					
+}	
+		 				
+echo $fav;
+?>
+							
+							<?
+							if ($listing->{FIELDNAME_LISTING_VIRTUAL_TOUR_LINK}) {
+								echo "<input type=\"button\" class=\"portaladv_button\" onmouseover=\"this.className='portaladv_button_hover';\" onmouseout=\"this.className='portaladv_button';\" onclick=\"return GB_showFullScreen('Beaver Creek Online Virtual Tour','" . $listing->{FIELDNAME_LISTING_VIRTUAL_TOUR_LINK} . "','600','800');\" value=\"" . BUTTON_VIRTUAL_TOUR . "\"></input>";
+							}		
+							?>
+						</strong>
+						<? /* <span class="listing_subarea"><? echo ucwords(strtolower($listing->sub_area)); ?></span><br /> */ ?>
+						<table>
+							<tr>
+								<td>
+									<? 
+									if (file_exists("/home/portal/rets_photos/image-" . $listing->{FIELDNAME_RESIDENTIAL_LISTING_DATABASE_ID} . "-2.jpg"))
+									{
+										echo '<img src="/mlsphotos/image-' . $listing->{FIELDNAME_RESIDENTIAL_LISTING_DATABASE_ID} . '-2.jpg" width="50" />';
+									}
+									?>
+								</td>
+								<td>
+									<? 
+									if (file_exists("/home/portal/rets_photos/image-" . $listing->{FIELDNAME_RESIDENTIAL_LISTING_DATABASE_ID} . "-3.jpg"))
+									{
+										echo '<img src="/mlsphotos/image-' . $listing->{FIELDNAME_RESIDENTIAL_LISTING_DATABASE_ID} . '-3.jpg" width="50" />';
+									}
+									?>
+								</td>
+								<td>
+									<? 
+									if (file_exists("/home/portal/rets_photos/image-" . $listing->{FIELDNAME_RESIDENTIAL_LISTING_DATABASE_ID} . "-4.jpg"))
+									{
+										echo '<img src="/mlsphotos/image-' . $listing->{FIELDNAME_RESIDENTIAL_LISTING_DATABASE_ID} . '-4.jpg" width="50" />';
+									}
+									?>
+								</td>
+							</tr>
+						</table>
+					</div>
+					
+					<?
+					/*
+					<div class="listing_links">
+						<a class="listing_details" href="index.php?option=com_portaladv&view=advancedsearch&view=details&task=details&listing=<?=$listing->{FIELDNAME_RESIDENTIAL_LISTING_DATABASE_ID}?>" >&raquo; details</a><br />
+						<a class="listing_details" href="index.php?option=com_portaladv&view=advancedsearch&view=details&task=details&listing=<?=$listing->{FIELDNAME_RESIDENTIAL_LISTING_DATABASE_ID}?>" >&raquo; photos</a><br />
+						<a class="listing_details" href="http://nelsonteam.com/index.php?option=com_contact&view=contact&id=1&Itemid=10" >&raquo; ask us!</a><br />
+					</div>
+					*/
+					?>
+					
+					<div class="clear"></div>
+					<div class="listing_amenities">
+							<table width="100%">
+								<tr>
+									<td valign="top">
+<?
+/*
+* 
+* BEGIN CUSTOM BCO INTEGRATION
+* - if condo or townhouse, user subdivision and unit #, else use address -
+*
+**/			
+
+if ($listing->{FIELDNAME_LISTING_SUB_TYPE} == 'Condo' || $listing->{FIELDNAME_LISTING_SUB_TYPE} == 'Townhouse') {
+	echo "<span class=\"listing_subdivision_name\">" . ucwords(strtolower($listing->{FIELDNAME_RESIDENTIAL_SUBDIVISION})) . " - Unit # " . $listing->{FIELDNAME_LISTING_UNIT_NUMBER} . "<br /></span>";
+} else {
+	echo "<span class=\"listing_subdivision_name\">" . ucwords(strtolower($listing->{FIELDNAME_RESIDENTIAL_ADDRESS_NUM})) . "<br /></span>";
+}
+
+/*
+* 
+* END CUSTOM BCO INTEGRATION
+*
+**/							
+?>
+									</td>
+								</tr>
+						
+						<? if ($listing->{FIELDNAME_PROPERTY_REMARKS1} != "") { ?>
+	
+								<tr>
+									<td valign="top">
+								
+							<?
+							echo $listing->{FIELDNAME_PROPERTY_REMARKS1};
+							/*
+							# THE BELOW IS FOR <ul><li> DISPLAY ONLY
+							$amenities = explode(",",$listing->$remarks1);
+							$countPerCol = ceil(count($amenities)/4);
+							for($i=0;$i<count($amenities);$i++) {
+								if (fmod($i,$countPerCol) == 0 && $i != count($amenities) && $i != 0) {
+									echo "</ul></td><td valign=\"top\" width=\"25%\"><ul>";
+								}
+								echo "<li>" . ucwords(strtolower($amenities[$i])) . "</li>";
+							}
+							*/
+							?>
+								
+									</td>
+								</tr>
+					
+					<? } ?>
+							</table>
+					</div>
+				</div>
+				<? /* <span class="listing_office"><? echo LISTING_PROVIDER; ?>: <? echo ucwords(strtolower($listing->{FIELDNAME_LISTING_AGENT_NAME})) . ' of ' . ucwords(strtolower($listing->{FIELDNAME_LISTING_OFFICE_NAME})); ?></span> */ ?>
+			</div>
+		<? endforeach; ?>
+		</td>
+	</tr>
+	<tr>
+		<td align="left">
+			&nbsp;&nbsp;<span class="pagination_page"><? echo $this->pagination->getPagesCounter(); ?></span>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<div class="spacer"></div>
+		</td>
+	</tr>
+	<tr>
+		<td align="left">
+			<? echo $this->pagination->getPagesLinks(); ?>
+		</td>
+	</tr>
+</table>
+

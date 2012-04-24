@@ -1,0 +1,12 @@
+div#mapLoading {
+	width:695px;
+	height:350px;
+	z-index:100;
+	position:absolute;
+	left:0px;
+	background-color: #000000;  /* the background          */
+   filter:alpha(opacity=50);   /* Internet Explorer       */
+   -moz-opacity:0.5;           /* Mozilla 1.6 and below   */
+   opacity: 0.5;               /* newer Mozilla and CSS-3 */
+   text-align:center;
+}

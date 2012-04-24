@@ -1,0 +1,18 @@
+input.checkbox {
+	width:16px;
+	height:15px;
+	margin-bottom:2px;
+	border-top:3px solid #000000;
+}
+
+input.portaladv_button {
+	padding:0px;
+}
+
+input.portaladv_button_hover {
+	padding:0px;
+}
+
+input.portaladv_button_off {
+	padding:0px;
+}

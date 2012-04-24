@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+	<layout title="Contact Form">
+		<message>
+			Display General Contact Form
+		</message>
+	</layout>
+	<state>
+		<name>General Contact Form</name>
+		<description>Display General Contact Form</description>
+		<params>
+		
+		</params>
+	</state>
+	</metadata>
